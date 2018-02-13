@@ -7,7 +7,6 @@ module ChargebeeRails
   	end
 
   	def do_sync
-  		byebug
   		self.get_plans
   		self.sync_plans
   	end
