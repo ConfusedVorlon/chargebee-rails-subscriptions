@@ -10,9 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["chargebee@spritle.com"]
 
   spec.summary       = %q{A subscription management gem for Rails with ChargeBee.}
-  spec.description   = %q{This gem provides developers with the ability to easily
-                        integrate chargebee's subscription management into their
-                        application backed by active record models.}
+  spec.description   = "Deprecated: Use the spiritle version"
+  spec.post_install_message = "Deprecated: Use the spiritle version"
   spec.homepage      = "https://github.com/spritlesoftware/chargebee-rails-subscriptions"
   spec.license       = "MIT"
 
