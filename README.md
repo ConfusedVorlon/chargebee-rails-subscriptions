@@ -1,3 +1,6 @@
-forked from paramaw/chargebee-rails-subscriptions so I have a stored copy
+# Chargebee Rails
 
-you should use their fork or another...
+This is now officially supported [here](https://github.com/spritlesoftware/chargebee-rails-subscriptions).
+
+They have even merged changes to support Rails 5.
+
