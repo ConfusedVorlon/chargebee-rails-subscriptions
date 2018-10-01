@@ -5,15 +5,16 @@ module ChargebeeRails
     # Handle the ChargeBee event retrieved from webhook and call the
     # corresponding event type handler for the event
     def handle(chargebee_event)
-      @chargebee_event = chargebee_event
-      if sync_events_list.include?(event.event_type)
-        sync_events
-    elsif self.respond_to?(event.event_type)
-        send(event.event_type)
-    else
-        Rails.logger.warn("Unrecognised chargebee event type #{event.event_type}")
-    end
+        @chargebee_event = chargebee_event
+        if sync_events_list.include?(event.event_type)
+            sync_events
+        end
 
+        if self.respond_to?(event.event_type)
+            send(event.event_type)
+        else
+            Rails.logger.warn("Unrecognised chargebee event type #{event.event_type}")
+        end
     end
 
     # Set event as ChargeBee event
@@ -226,8 +227,8 @@ module ChargebeeRails
         auto_collection: customer.auto_collection,
         payment_type: customer.payment_method.type,
         reference_id: customer.payment_method.reference_id,
-        card_last4: card&.last4,
-        card_type: card&.card_type,
+        card_last4: card && card.last4,
+        card_type: card && card.card_type,
         status: customer.payment_method.status,
         event_last_modified_at: Time.at(event.occurred_at),
         updated_at: Time.now
